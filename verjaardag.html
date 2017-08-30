@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your birthday</title>
+</head>
+<body>
+
+
+    <form id="myForm">
+        <div>
+            <label for = "gd">Geef uw geboortedatum:</label>
+            <input id = "gd" name="geboortedatum" placeholder="dd/mm/yyyy"></input>
+
+        </div>
+
+
+        <input type="submit" value="Bereken">
+    </form>
+
+    <script>
+
+
+            var f = document.getElementById("myForm");
+            f.addEventListener("submit", function (e) {
+                console.log (f.geboortedatum.value);
+                if (f.geboortedatum.value ===""){
+                    alert("geef je geboortedatum in volgens dd/mm.yyyy");
+                    e.preventDefault();
+
+                }
+
+            })
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

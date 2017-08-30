@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events en Clicks</title>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+
+<style>
+    td, th {
+        border: 1px solid black;
+        padding: 0.5rem;
+        font-family: sans-serif;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    #myDiv {
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
+        background-color: white;
+        position: relative;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <form id="myForm" method="post">
+        <div class="form-group">
+            <label class="control-label" for="fn">Voornaam:</label>
+            <input class="form-control" id="fn" name="firstname" placeholder="Geef uw voornaam"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="ln">Achternaam:</label>
+            <input class="form-control" id="ln" name="lastname"  placeholder="Geef uw achternaam"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="pw">Wachtwoord:</label>
+            <input class="form-control" type="password" id="pw" name="password"/>
+        </div>
+        <input type="submit" value="Registreer" class="btn btn-primary">
+    </form>
+
+    <hr/>
+
+    <button id="myCoolButton" class="btn btn-danger">Click here</button>
+    <hr/>
+    <div id="myDiv">If you click here, your browser may explode</div>
+</div>
+
+<script>
+    var b = document.getElementById("myCoolButton");
+    b.addEventListener("click", showMessage);
+    function showMessage() {
+        alert("Peekaboo!");
+    }
+
+    var d = document.getElementById("myDiv");
+    var left = 0;
+    d.addEventListener("click", function() {
+        d.style.background = "red";
+        left += 25;
+        d.style.left = left + "px";
+    });
+
+    d.addEventListener("mousemove", function(e) {
+        console.log("MOUSE MOVED (" + e.clientX + ", " + e.clientY + ")");
+        d.innerHTML += "(" + e.clientX + ", " + e.clientY + ")"
+    });
+
+    var f = document.getElementById("myForm");
+    f.addEventListener("submit", function(e) {
+        console.log(f.firstname.value);
+        console.log(f.lastname.value);
+        console.log(f.password.value);
+        //e.stopPropagation();
+        if(f.firstname.value === "") {
+            alert("Formulier niet goed ingevuld");
+            e.preventDefault();
+        }
+    });
+
+    var l = document.getElementById("ln");
+    l.addEventListener("keypress", function(e) {
+        console.log("PRESSED KEY inside LAST NAME " + e.key);
+        f.style.background = "purple";
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button</title>
+</head>
+<body>
+
+
+    <form>
+        <div>
+            <label for = "fn">Voornaam:</label>
+            <input id = "fn" name="Firstname" placeholder="Geef uw voornaam"></input>
+
+        </div>
+
+        <input type="submit" value="Registreer">
+    </form>
+
+
+    <button id = "myButton" onclick="showMessage()">Klik hier</button>
+
+
+    <script>
+        var b = document.getElementById("myButton");
+        b.addEventListener("click", showMessage);
+    </script>
+
+    <script>function showMessage() {
+        alert ("Peekaboo!");
+        }
+    </Script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+    <script>
+
+        var month = 1;
+        var day = 15;
+
+        document.write("<pre>");
+        document.write("month = " + month + "\n");
+        document.write("day = " + day + "\n");
+
+
+
+        var birthday = new Date();
+        var currentdate = new Date();
+        document.write("currentdate = " + currentdate + "\n");
+
+        birthday.setDate(day);
+        birthday.setMonth(month);
+        document.write("birthday = " + birthday + "\n");
+
+
+
+        birthday = birthday.getTime();
+        currentdate = currentdate.getTime();
+        document.write("currentdate = " + currentdate + "\n");
+
+
+
+        var theDate = birthday - currentdate;
+        document.write("theDate = " + theDate + "\n");
+
+
+
+        theDate = (((theDate / 1000) / 60) / 60) / 24;
+
+
+
+        document.write("theDate = " + theDate + "\n");
+        document.write("</pre>");
+
+
+
+    </script>
+
+</body>
+</html>
